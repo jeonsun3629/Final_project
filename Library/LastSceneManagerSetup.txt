@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Samples/ARCore Extensions/1.30.0/Persistent Cloud Anchor Sample/Scenes/PersistentCloudAnchors.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
