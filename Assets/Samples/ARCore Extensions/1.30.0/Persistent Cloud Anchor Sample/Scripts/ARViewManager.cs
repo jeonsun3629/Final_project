@@ -19,7 +19,8 @@
 //-----------------------------------------------------------------------
 
 namespace Google.XR.ARCoreExtensions.Samples.PersistentCloudAnchors
-{
+{   
+    using System;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
     using UnityEngine;
@@ -175,6 +176,7 @@ namespace Google.XR.ARCoreExtensions.Samples.PersistentCloudAnchors
         /// is waiting for hosting.
         /// </summary>
         private ARAnchor _anchor = null;
+        private List<ARAnchor> anchors = new List<ARAnchor>();
 
         /// <summary>
         /// A list of Cloud Anchors that have been created but are not yet ready to use.
@@ -188,6 +190,8 @@ namespace Google.XR.ARCoreExtensions.Samples.PersistentCloudAnchors
 
         private Color _activeColor;
         private AndroidJavaClass _versionInfo;
+
+        public GameObject prefab_night, prefab_day;
 
         /// <summary>
         /// Get the camera pose for the current frame.
@@ -283,12 +287,22 @@ namespace Google.XR.ARCoreExtensions.Samples.PersistentCloudAnchors
                 Destroy(_qualityIndicator.gameObject);
                 _qualityIndicator = null;
             }
-
-            if (_anchor != null)
-            {
+            
+            // foreach(ARAnchor anchor in anchors){
+            if (_anchor != null){
+                // List<Transform> children = new List<Transform>();
+                // foreach(Transform child in anchor.transform){
+                //     children.Add(child);
+                // }
+                // foreach(Transform child in children){
+                //     child.parent = null;
+                //     Destroy(child.gameObject);
+                // }
                 Destroy(_anchor.gameObject);
                 _anchor = null;
             }
+            // }
+            
 
             if (_pendingCloudAnchors.Count > 0)
             {
@@ -558,6 +572,17 @@ namespace Google.XR.ARCoreExtensions.Samples.PersistentCloudAnchors
                             cloudAnchor.cloudAnchorId);
                         OnAnchorResolvedFinished(true, cloudAnchor.cloudAnchorId);
                         Instantiate(CloudAnchorPrefab, cloudAnchor.transform);
+                        var time = System.DateTime.UtcNow.ToString("HH:mm");
+                        int t = int.Parse(time.Substring(0,2));
+                        Debug.Log(t);
+                        GameObject pf;
+                        if (t>6 && t<18){
+                            pf = prefab_day;
+                        }else{
+                            pf = prefab_night;
+                        } 
+                        GameObject menu = Instantiate(pf, cloudAnchor.transform);
+                        menu.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Text>().text += "\n" + time;
                     }
 
                     _cachedCloudAnchors.Add(cloudAnchor);

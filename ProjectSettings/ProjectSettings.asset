@@ -178,7 +178,7 @@ PlayerSettings:
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 24
-  AndroidTargetSdkVersion: 0
+  AndroidTargetSdkVersion: 29
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   stripEngineCode: 1
@@ -800,10 +800,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 928f59f0-c11a-4153-bce4-11055c67f132
+  cloudProjectId: f50333f4-57b7-4b9f-b8a7-e38405a4045c
   framebufferDepthMemorylessMode: 0
-  projectName: My project
-  organizationId: thoyeon
+  projectName: CTP445 PHW4
+  organizationId: kampanartsudprasert
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

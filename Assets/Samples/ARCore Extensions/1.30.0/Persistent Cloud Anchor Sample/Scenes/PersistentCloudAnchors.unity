@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1292,6 +1292,10 @@ MonoBehaviour:
   DebugText: {fileID: 645328230}
   SaveButton: {fileID: 2054425934}
   ShareButton: {fileID: 269160621}
+  prefab_night: {fileID: 7573033012161618583, guid: c8af4e1d4af875d4b913d3ff2036024e,
+    type: 3}
+  prefab_day: {fileID: 7573033012161618583, guid: 00b3c8bc3b027d04f970ae8d22ebe238,
+    type: 3}
 --- !u!1 &344135559
 GameObject:
   m_ObjectHideFlags: 0
